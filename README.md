@@ -26,7 +26,7 @@ insert into courses(id, name, desc) VALUES('3', 'eee', 'eee course');
 
 insert into studententity(id, first_name, last_name, address) VALUES('1', 'harish', 'konduru', 'hyd');
 
-insert into map_course_student(id, course_id, student_id, created_date, created_by) VALUES('1', '1', '1', '12-04-2018', 'harish');
+insert into map_course_student(id, course_id, student_id, created_by) VALUES('1', '1', '1', 'harish');
 
 
 GET http://localhost:8080/getStudent/1
