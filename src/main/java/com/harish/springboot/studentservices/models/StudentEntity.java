@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -61,7 +62,11 @@ public class StudentEntity {
 		this.address = address;
 	}
 
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+                })
 	@JoinTable(name = "map_course_student", 
 	joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"), 
 	inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
